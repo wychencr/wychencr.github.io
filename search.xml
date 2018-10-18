@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[使用Hexo和Github建立个人主页]]></title>
+    <url>%2F2018%2F10%2F18%2F001-%E4%BD%BF%E7%94%A8Hexo%E5%92%8CGithub%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%2F</url>
+    <content type="text"><![CDATA[测试 yyy]]></content>
+      <tags>
+        <tag>Hexo Github Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2018%2F10%2F18%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
