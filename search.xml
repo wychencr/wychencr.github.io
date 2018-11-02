@@ -34,8 +34,8 @@
         <category>git</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>Github</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -46,9 +46,9 @@
         <category>git</category>
       </categories>
       <tags>
-        <tag>Git</tag>
-        <tag>Github</tag>
         <tag>Hexo</tag>
+        <tag>Github</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
 </search>
