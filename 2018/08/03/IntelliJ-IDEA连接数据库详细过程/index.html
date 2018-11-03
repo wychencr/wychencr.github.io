@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Git,Github," />
+  <meta name="keywords" content="IDEA,数据库," />
 
 
 
@@ -83,20 +83,30 @@
 
 
 
-<meta name="description" content="一、git工作流程  Workspace工作区：是当前工作目录，可以在此目录编辑文件 Index缓存区：add指令，保存文件的改动 Repository仓库：commit指令，将多次的文件改动最后提交 Remote远程仓库：可以将本地仓库代码传到远程仓库上，方便多人远程协作  二、常用操作1、初始化仓库1$ git init 2、加到缓存区12345678# 指定文件，提交到暂存区$ git ad">
-<meta name="keywords" content="Git,Github">
+<meta name="description" content="前言IntelliJ IDEA集成了众多插件，方便开发者使用，使用其自带的Database工具就可以很方便的配置、连接到数据库，本次操作以MySQL为例，其中testjdbc数据库已经提前建好，里面有两张表emp_table 和 t_user，相关信息如下图。  连接到MySQL数据库1、选择数据源在IDEA中新建一个Java工程后，最右侧侧边栏会有个 Database 标签，点击此标签，然后点">
+<meta name="keywords" content="IDEA,数据库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git使用的常用命令">
-<meta property="og:url" content="https://chenran.tk/2018/10/19/Git使用-常用命令/index.html">
+<meta property="og:title" content="IntelliJ IDEA连接数据库详细过程">
+<meta property="og:url" content="https://chenran.tk/2018/08/03/IntelliJ-IDEA连接数据库详细过程/index.html">
 <meta property="og:site_name" content="Ran Chen&#39;s Home">
-<meta property="og:description" content="一、git工作流程  Workspace工作区：是当前工作目录，可以在此目录编辑文件 Index缓存区：add指令，保存文件的改动 Repository仓库：commit指令，将多次的文件改动最后提交 Remote远程仓库：可以将本地仓库代码传到远程仓库上，方便多人远程协作  二、常用操作1、初始化仓库1$ git init 2、加到缓存区12345678# 指定文件，提交到暂存区$ git ad">
+<meta property="og:description" content="前言IntelliJ IDEA集成了众多插件，方便开发者使用，使用其自带的Database工具就可以很方便的配置、连接到数据库，本次操作以MySQL为例，其中testjdbc数据库已经提前建好，里面有两张表emp_table 和 t_user，相关信息如下图。  连接到MySQL数据库1、选择数据源在IDEA中新建一个Java工程后，最右侧侧边栏会有个 Database 标签，点击此标签，然后点">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/e4eff812gy1fwdj15t3o0j20gy064aa3.jpg">
-<meta property="og:updated_time" content="2018-10-19T08:56:29.371Z">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914140428988-650140724.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135750615-1050365771.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135759749-1466449314.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135810807-1026069661.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135826023-736982158.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135837093-1252189974.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135844403-2107412078.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135852756-928275005.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135902742-2091505809.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135913001-238360162.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135927107-2096573403.png">
+<meta property="og:updated_time" content="2018-11-03T07:34:52.086Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git使用的常用命令">
-<meta name="twitter:description" content="一、git工作流程  Workspace工作区：是当前工作目录，可以在此目录编辑文件 Index缓存区：add指令，保存文件的改动 Repository仓库：commit指令，将多次的文件改动最后提交 Remote远程仓库：可以将本地仓库代码传到远程仓库上，方便多人远程协作  二、常用操作1、初始化仓库1$ git init 2、加到缓存区12345678# 指定文件，提交到暂存区$ git ad">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/e4eff812gy1fwdj15t3o0j20gy064aa3.jpg">
+<meta name="twitter:title" content="IntelliJ IDEA连接数据库详细过程">
+<meta name="twitter:description" content="前言IntelliJ IDEA集成了众多插件，方便开发者使用，使用其自带的Database工具就可以很方便的配置、连接到数据库，本次操作以MySQL为例，其中testjdbc数据库已经提前建好，里面有两张表emp_table 和 t_user，相关信息如下图。  连接到MySQL数据库1、选择数据源在IDEA中新建一个Java工程后，最右侧侧边栏会有个 Database 标签，点击此标签，然后点">
+<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914140428988-650140724.png">
 
 
 
@@ -126,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://chenran.tk/2018/10/19/Git使用-常用命令/"/>
+  <link rel="canonical" href="https://chenran.tk/2018/08/03/IntelliJ-IDEA连接数据库详细过程/"/>
 
 
 
 
 
-  <title>Git使用的常用命令 | Ran Chen's Home</title>
+  <title>IntelliJ IDEA连接数据库详细过程 | Ran Chen's Home</title>
   
 
 
@@ -303,7 +313,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chenran.tk/2018/10/19/Git使用-常用命令/">
+    <link itemprop="mainEntityOfPage" href="https://chenran.tk/2018/08/03/IntelliJ-IDEA连接数据库详细过程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ran Chen">
@@ -320,7 +330,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git使用的常用命令</h1>
+          <h1 class="post-title" itemprop="name headline">IntelliJ IDEA连接数据库详细过程</h1>
         
 
         <div class="post-meta">
@@ -332,8 +342,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-19T14:38:25+08:00">
-                2018-10-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-03T15:28:24+08:00">
+                2018-08-03
               </time>
             
 
@@ -355,8 +365,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
 
@@ -392,21 +402,45 @@
       
 
       
-        <h2 id="一、git工作流程"><a href="#一、git工作流程" class="headerlink" title="一、git工作流程"></a>一、git工作流程</h2><p><img src="http://ww1.sinaimg.cn/large/e4eff812gy1fwdj15t3o0j20gy064aa3.jpg" alt=""></p>
-<ul>
-<li>Workspace工作区：是当前工作目录，可以在此目录编辑文件</li>
-<li>Index缓存区：add指令，保存文件的改动</li>
-<li>Repository仓库：commit指令，将多次的文件改动最后提交</li>
-<li>Remote远程仓库：可以将本地仓库代码传到远程仓库上，方便多人远程协作</li>
+        <hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>IntelliJ IDEA</strong>集成了众多插件，方便开发者使用，使用其自带的Database工具就可以很方便的配置、连接到数据库，本次操作以<strong>MySQL</strong>为例，其中<strong>testjdbc数据库已经提前建好</strong>，里面有两张表emp_table 和 t_user，相关信息如下图。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914140428988-650140724.png" alt=""></p>
+<h2 id="连接到MySQL数据库"><a href="#连接到MySQL数据库" class="headerlink" title="连接到MySQL数据库"></a>连接到MySQL数据库</h2><h3 id="1、选择数据源"><a href="#1、选择数据源" class="headerlink" title="1、选择数据源"></a>1、选择数据源</h3><p>在IDEA中新建一个Java工程后，最右侧侧边栏会有个 <code>Database</code> 标签，点击此标签，然后点击<code>+</code>按钮<br>，选择<code>Data Source</code>，选择<code>MySQL</code>，如果是其他数据源，选择其他对应按钮即可。过程如下图所示。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135750615-1050365771.png" alt=""></p>
+<h3 id="2、下载驱动"><a href="#2、下载驱动" class="headerlink" title="2、下载驱动"></a>2、下载驱动</h3><p>如下图是下载好MySQL驱动的情况。如果是第一次进入此界面并且没有驱动，IDEA会在Driver处提示没有下载对应数据库类型的驱动，直接点击，就会自动下载，稍作等待后，结果显示为MySQL，若点击此标签，可以对MySQL的驱动文件进行进一步配置。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135759749-1466449314.png" alt=""></p>
+<h3 id="3、配置账户、密码信息"><a href="#3、配置账户、密码信息" class="headerlink" title="3、配置账户、密码信息"></a>3、配置账户、密码信息</h3><p>如上图所示，需要填写数据库账户信息，这里我的用户名<strong>User</strong>为root，由于是本地数据库，所以<strong>Host</strong>填写为localhost，端口<strong>Port</strong>为3306，<strong>Password</strong>填写用户名对应的密码即可，<strong>Database</strong>可以填写想连接的数据库名，也可以暂时不填，待连接上后再设置。填写以上所有信息后，点击<code>Test Connection</code>按钮，如果显示成功Successful，说明连接成功，点击<code>OK</code>按钮，配置完成。</p>
+<h3 id="4、查看、修改数据库"><a href="#4、查看、修改数据库" class="headerlink" title="4、查看、修改数据库"></a>4、查看、修改数据库</h3><ul>
+<li>连接到数据库后，在<code>Database</code>标签下，可以查看数据库结果，如下图所示，可以看到testjdbc库下有两张表，分别是emp_table 和 t_user，并且能看到表的列信息。如下图所示。</li>
 </ul>
-<h2 id="二、常用操作"><a href="#二、常用操作" class="headerlink" title="二、常用操作"></a>二、常用操作</h2><h3 id="1、初始化仓库"><a href="#1、初始化仓库" class="headerlink" title="1、初始化仓库"></a>1、初始化仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
-<h3 id="2、加到缓存区"><a href="#2、加到缓存区" class="headerlink" title="2、加到缓存区"></a>2、加到缓存区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 指定文件，提交到暂存区</span><br><span class="line">$ git add &lt;filename&gt;</span><br><span class="line"></span><br><span class="line"># 将工作区的变化提交到暂存区，包括文件修改和新增，但是不包括删除的文件</span><br><span class="line">$ git add .</span><br><span class="line"></span><br><span class="line"># 将工作区的变化提交到暂存区，包括新增，删除和修改的所有内容</span><br><span class="line">$ git add -A</span><br></pre></td></tr></table></figure>
-<h3 id="3、提交到版本库"><a href="#3、提交到版本库" class="headerlink" title="3、提交到版本库"></a>3、提交到版本库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 将修改从暂存区提交到版本库，并添加备注message</span><br><span class="line">$ git commit -m “message”</span><br></pre></td></tr></table></figure>
-<h3 id="4、查看信息"><a href="#4、查看信息" class="headerlink" title="4、查看信息"></a>4、查看信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 查看上次提交之后是否有修改</span><br><span class="line">$ git status</span><br><span class="line"># 查看上次提交之后是否有修改，简短输出结果</span><br><span class="line">$ git status -s</span><br><span class="line"></span><br><span class="line"># 查看尚未缓存的改动</span><br><span class="line">$ git diff</span><br><span class="line"># 查看已缓存的改动</span><br><span class="line">$ git diff -cached</span><br><span class="line"># 查看已缓存的与未缓存的所有改动</span><br><span class="line">$ git diff HEAD</span><br><span class="line"></span><br><span class="line"># 显示当前分支的版本历史</span><br><span class="line">$ git log</span><br><span class="line"># 显示commit历史，以及每次commit发生变更的文件</span><br><span class="line">$ git log --stat</span><br><span class="line"># 显示指定文件相关的每一次diff</span><br><span class="line">$ git log -p [file]</span><br></pre></td></tr></table></figure>
-<h3 id="5、回退操作"><a href="#5、回退操作" class="headerlink" title="5、回退操作"></a>5、回退操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 恢复暂存区的指定文件到工作区</span><br><span class="line">$ git checkout [file]</span><br><span class="line"> </span><br><span class="line"># 恢复某个commit的指定文件到暂存区和工作区</span><br><span class="line">$ git checkout [commit] [file]</span><br><span class="line"> </span><br><span class="line"># 恢复暂存区的所有文件到工作区</span><br><span class="line">$ git checkout .</span><br><span class="line"> </span><br><span class="line"># 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</span><br><span class="line">$ git reset [file]</span><br><span class="line"> </span><br><span class="line"># 重置暂存区与工作区，与上一次commit保持一致</span><br><span class="line">$ git reset --hard</span><br></pre></td></tr></table></figure>
-<h3 id="6、分支操作"><a href="#6、分支操作" class="headerlink" title="6、分支操作"></a>6、分支操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># 列出所有本地分支</span><br><span class="line">$ git branch</span><br><span class="line"> </span><br><span class="line"># 列出所有远程分支</span><br><span class="line">$ git branch -r</span><br><span class="line"> </span><br><span class="line"># 列出所有本地分支和远程分支</span><br><span class="line">$ git branch -a</span><br><span class="line"> </span><br><span class="line"># 新建一个分支，但依然停留在当前分支</span><br><span class="line">$ git branch [branch-name]</span><br><span class="line"> </span><br><span class="line"># 新建一个分支，并切换到该分支</span><br><span class="line">$ git checkout -b [branch]</span><br><span class="line"></span><br><span class="line"># 切换到指定分支，并更新工作区</span><br><span class="line">$ git checkout [branch-name]</span><br><span class="line"></span><br><span class="line"># 合并指定分支到当前分支</span><br><span class="line">$ git merge [branch]</span><br><span class="line"> </span><br><span class="line"># 选择一个commit，合并进当前分支</span><br><span class="line">$ git cherry-pick [commit]</span><br><span class="line"> </span><br><span class="line"># 删除分支</span><br><span class="line">$ git branch -d [branch-name]</span><br><span class="line"> </span><br><span class="line"># 删除远程分支</span><br><span class="line">$ git push origin --delete [branch-name]</span><br><span class="line">$ git branch -dr [remote/branch]</span><br></pre></td></tr></table></figure>
-<h3 id="7、克隆仓库"><a href="#7、克隆仓库" class="headerlink" title="7、克隆仓库"></a>7、克隆仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># repo:Git 仓库  directory:本地目录</span><br><span class="line">$ git clone &lt;repo&gt;</span><br><span class="line">$ git clone &lt;repo&gt; &lt;directory&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="8、与远程仓库同步"><a href="#8、与远程仓库同步" class="headerlink" title="8、与远程仓库同步"></a>8、与远程仓库同步</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 增加一个新的远程仓库，并命名</span><br><span class="line">$ git remote add [origin] [url]</span><br><span class="line"> </span><br><span class="line"># 取回远程仓库的变化，并与本地分支合并</span><br><span class="line">$ git pull [remote] [branch]</span><br><span class="line"> </span><br><span class="line"># 上传本地指定分支到远程仓库</span><br><span class="line">$ git push [remote] [branch]</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135810807-1026069661.png" alt=""></p>
+<ul>
+<li>点击表名或者列名，就可以查看表信息，也可以修改表信息，如下图所示。</li>
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135826023-736982158.png" alt=""></p>
+<h2 id="使用JDBC操作数据库"><a href="#使用JDBC操作数据库" class="headerlink" title="使用JDBC操作数据库"></a>使用JDBC操作数据库</h2><h3 id="1、导入驱动包到工程"><a href="#1、导入驱动包到工程" class="headerlink" title="1、导入驱动包到工程"></a>1、导入驱动包到工程</h3><ul>
+<li>在<code>Database</code>标签下，右键刚刚建立的数据源名，选择属性<code>Properties</code>，进入之前配置数据源的界面，如下图所示。</li>
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135837093-1252189974.png" alt=""></p>
+<ul>
+<li>点击Driver处<code>MySQL</code>，查看驱动信息，如下图所示。</li>
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135844403-2107412078.png" alt=""></p>
+<ul>
+<li>查看驱动包在计算机中的位置，记下这个路径，方便后面导入这个jar包，如下图。</li>
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135852756-928275005.png" alt=""></p>
+<ul>
+<li>查看到MySQL驱动包的位置后，关闭窗口，在主界面点击<code>File</code>-&gt;<code>Project Structure</code>，进入工程设置界面。然后在左侧栏，点击<code>Modules</code>，再选择<code>Dependencies</code>，再点击右侧的<code>+</code>按钮，选择<code>JARs or directories</code>，找到上面MySQL驱动jar包的位置，选择这个jar文件。成功导入后，在Export栏下会有两项，分别是jdk和刚刚导入的jar包，如下图所示。</li>
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135902742-2091505809.png" alt=""></p>
+<p>导入成功后，在工程目录External Libraries下面也会出现导入的驱动包名称，如下图所示。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135913001-238360162.png" alt=""></p>
+<h3 id="2、使用jdbc操作数据库"><a href="#2、使用jdbc操作数据库" class="headerlink" title="2、使用jdbc操作数据库"></a>2、使用jdbc操作数据库</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConnMySQL</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 加载驱动类</span></span><br><span class="line">            Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">            <span class="keyword">long</span> start =System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 建立连接</span></span><br><span class="line">            conn = DriverManager.getConnection(<span class="string">"jdbc:mysql://localhost:3306/testjdbc"</span>,</span><br><span class="line">                    <span class="string">"root"</span>, <span class="string">"【填写对应的密码】"</span>);</span><br><span class="line">            <span class="keyword">long</span> end = System.currentTimeMillis();</span><br><span class="line">            System.out.println(conn);</span><br><span class="line">            System.out.println(<span class="string">"建立连接耗时： "</span> + (end - start) + <span class="string">"ms 毫秒"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 创建Statement对象</span></span><br><span class="line">            Statement stmt = conn.createStatement();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 执行SQL语句</span></span><br><span class="line">            ResultSet rs = stmt.executeQuery(<span class="string">"select * from t_user"</span>);</span><br><span class="line">            System.out.println(<span class="string">"id\tusername\tpwd\t\tregTime"</span>);</span><br><span class="line">            <span class="keyword">while</span> (rs.next()) &#123;</span><br><span class="line">                System.out.println(rs.getInt(<span class="number">1</span>) + <span class="string">"\t"</span> + rs.getString(<span class="number">2</span>)</span><br><span class="line">                        + <span class="string">"\t\t"</span> + rs.getString(<span class="number">3</span>) + <span class="string">"\t\t"</span> + rs.getString(<span class="number">4</span>));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (rs != <span class="keyword">null</span>) &#123;</span><br><span class="line">                rs.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (stmt != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stmt.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (conn != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    conn.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3、程序执行结果"><a href="#3、程序执行结果" class="headerlink" title="3、程序执行结果"></a>3、程序执行结果</h3><ul>
+<li>上面的程序中，使用了一条查询语句，查询表t_user的内容，执行程序后的结果如下图。</li>
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/1397676/201809/1397676-20180914135927107-2096573403.png" alt=""></p>
 
       
     </div>
@@ -424,9 +458,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag"># Git</a>
+            <a href="/tags/IDEA/" rel="tag"># IDEA</a>
           
-            <a href="/tags/Github/" rel="tag"># Github</a>
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
           
         </div>
       
@@ -439,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/18/使用Hexo和Github建立个人主页/" rel="next" title="使用Hexo和Github建立个人主页">
-                <i class="fa fa-chevron-left"></i> 使用Hexo和Github建立个人主页
+              <a href="/2018/07/29/麻将胡牌算法及代码实现/" rel="next" title="麻将胡牌算法及代码实现">
+                <i class="fa fa-chevron-left"></i> 麻将胡牌算法及代码实现
               </a>
             
           </div>
@@ -449,8 +483,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/19/绑定个人域名与Github-pages/" rel="prev" title="绑定个人域名与Github pages">
-                绑定个人域名与Github pages <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/18/使用Hexo和Github建立个人主页/" rel="prev" title="使用Hexo和Github建立个人主页">
+                使用Hexo和Github建立个人主页 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -588,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、git工作流程"><span class="nav-text">一、git工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、常用操作"><span class="nav-text">二、常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、初始化仓库"><span class="nav-text">1、初始化仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、加到缓存区"><span class="nav-text">2、加到缓存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、提交到版本库"><span class="nav-text">3、提交到版本库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、查看信息"><span class="nav-text">4、查看信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、回退操作"><span class="nav-text">5、回退操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、分支操作"><span class="nav-text">6、分支操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、克隆仓库"><span class="nav-text">7、克隆仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、与远程仓库同步"><span class="nav-text">8、与远程仓库同步</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接到MySQL数据库"><span class="nav-text">连接到MySQL数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、选择数据源"><span class="nav-text">1、选择数据源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、下载驱动"><span class="nav-text">2、下载驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、配置账户、密码信息"><span class="nav-text">3、配置账户、密码信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、查看、修改数据库"><span class="nav-text">4、查看、修改数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用JDBC操作数据库"><span class="nav-text">使用JDBC操作数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、导入驱动包到工程"><span class="nav-text">1、导入驱动包到工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、使用jdbc操作数据库"><span class="nav-text">2、使用jdbc操作数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、程序执行结果"><span class="nav-text">3、程序执行结果</span></a></li></ol></li></ol></div>
             
 
           </div>
