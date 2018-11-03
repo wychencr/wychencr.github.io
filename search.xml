@@ -51,4 +51,15 @@
         <tag>Git</tag>
       </tags>
   </entry>
+  <entry>
+    <title><![CDATA[Matlab更换字体后 中文显示乱码问题]]></title>
+    <url>%2F2018%2F06%2F21%2FMATLAB%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E5%90%8E%20%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[前言MATLAB的脚本代码默认宋体显示，对于大多数720P的显示器来说，无论是中文还是英文，显示效果都非常差。Windows环境下，Consolas是一种比较理想的英文代码字体。 Consolas 字体是微软专为程序员开发的一种字体，这一字体的特性是所有字母、数字与符号均能非常容易辨认!而且所有字符都具有相同的宽度,让编程人员看着更舒适。但是不支持中文。 微软雅黑是个人电脑上可以显示的最清晰的中文字体之一,全面支持ClearType技术。 但是在MATLAB 2014b中将默认字体设置修改后，中文注释会出现乱码。解决方案是下载一种 Consolas 和 微软雅黑 的混合字体，这样既保证了代码的显示效果，而且也兼容了中文显示。 解决方案1、下载雅黑Consolas字体混合版 下载链接YAHEI CONSOLAS HYBRID.TTF 2、安装字体 下载后，双击，然后安装字体。 C:\Windows\Fonts文件夹下会出现刚刚安装成功的字体。 3、更改MATLAB的字体设置 打开MATLAB设置项。 然后选择新安装的字体，保存设置 4、查看效果 测试效果，发现中英文皆可正常显示。 Reference matlab字体终极解决方案 - CSDN博客 YaHei Consolas Hybrid(雅黑Consolas字体混合版) v1.12最新版 - 未来软件园]]></content>
+      <categories>
+        <category>matlab</category>
+      </categories>
+      <tags>
+        <tag>Matlab</tag>
+      </tags>
+  </entry>
 </search>
