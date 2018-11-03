@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="oTxR5_v19nYsP76yJySKxTmu4wVtp7fy9EeLlFjOh1U" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="Jioi250rPg" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="算法,DFS,c++," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="回溯法是一种选优搜索法（试探法），被称为通用的解题方法，这种方法适用于解一些组合数相当大的问题。通过剪枝（约束+限界）可以大幅减少解决问题的计算量（搜索量）。 基本思想将n元问题P的状态空间E表示成一棵高为n的带权有序树T，把在E中求问题P的解转化为在T中搜索问题P的解。  深度优先搜索（Depth-First-Search，DFS）是一种用于遍历或搜索树或图的算法。沿着树的深度遍历树的节点，尽可">
+<meta name="keywords" content="算法,DFS,c++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="回溯算法 DFS深度优先搜索 （递归与非递归实现）">
+<meta property="og:url" content="https://chenran.tk/2018/08/07/回溯算法DFS深度优先搜索/index.html">
+<meta property="og:site_name" content="Ran Chen&#39;s Home">
+<meta property="og:description" content="回溯法是一种选优搜索法（试探法），被称为通用的解题方法，这种方法适用于解一些组合数相当大的问题。通过剪枝（约束+限界）可以大幅减少解决问题的计算量（搜索量）。 基本思想将n元问题P的状态空间E表示成一棵高为n的带权有序树T，把在E中求问题P的解转化为在T中搜索问题P的解。  深度优先搜索（Depth-First-Search，DFS）是一种用于遍历或搜索树或图的算法。沿着树的深度遍历树的节点，尽可">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/e4eff812gy1fwv7rg83dtj20cn07u759.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/e4eff812gy1fwv7rs8klqj20hk09mjr6.jpg">
+<meta property="og:updated_time" content="2018-11-03T13:53:00.477Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="回溯算法 DFS深度优先搜索 （递归与非递归实现）">
+<meta name="twitter:description" content="回溯法是一种选优搜索法（试探法），被称为通用的解题方法，这种方法适用于解一些组合数相当大的问题。通过剪枝（约束+限界）可以大幅减少解决问题的计算量（搜索量）。 基本思想将n元问题P的状态空间E表示成一棵高为n的带权有序树T，把在E中求问题P的解转化为在T中搜索问题P的解。  深度优先搜索（Depth-First-Search，DFS）是一种用于遍历或搜索树或图的算法。沿着树的深度遍历树的节点，尽可">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e4eff812gy1fwv7rg83dtj20cn07u759.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chenran.tk/2018/08/07/回溯算法DFS深度优先搜索/"/>
+
+
+
+
+
+  <title>回溯算法 DFS深度优先搜索 （递归与非递归实现） | Ran Chen's Home</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ran Chen's Home</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenran.tk/2018/08/07/回溯算法DFS深度优先搜索/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ran Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ran Chen's Home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">回溯算法 DFS深度优先搜索 （递归与非递归实现）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-07T21:48:23+08:00">
+                2018-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>回溯法</strong>是一种选优搜索法（试探法），被称为通用的解题方法，这种方法适用于解一些组合数相当大的问题。通过<strong>剪枝</strong>（约束+限界）可以大幅减少解决问题的计算量（搜索量）。</p>
+<h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><p>将n元问题P的状态空间E表示成一棵高为n的带权有序树T，把在E中求问题P的解转化为在T中搜索问题P的解。</p>
+<blockquote>
+<p>深度优先搜索（Depth-First-Search，DFS）是一种用于遍历或搜索树或图的算法。沿着树的深度遍历树的节点，尽可能深的搜索树的分支。当节点v的所在边都己被探寻过，搜索将<strong>回溯</strong>到发现节点v的那条边的起始节点。这一过程一直进行到已发现从源节点可达的所有节点为止。如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个进程反复进行直到所有节点都被访问为止。 <a href="https://zh.wikipedia.org/wiki/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">–from wiki</a></p>
+</blockquote>
+<h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><p>1、按选优条件对T进行深度优先搜索，以达到目标。</p>
+<p>2、从根结点出发深度优先搜索解空间树</p>
+<p>3、当探索到某一结点时，要先判断该结点是否包含问题的解</p>
+<ul>
+<li>如果包含，就从该结点出发继续按深度优先策略搜索</li>
+<li>否则逐层向其祖先结点回溯（退回一步重新选择）</li>
+<li>满足回溯条件的某个状态的点称为“回溯点”</li>
+</ul>
+<p>4、算法结束条件</p>
+<ul>
+<li>求所有解：回溯到根，且根的所有子树均已搜索完成</li>
+<li>求任一解：只要搜索到问题的一个解就可以结束</li>
+</ul>
+<h3 id="遍历过程"><a href="#遍历过程" class="headerlink" title="遍历过程"></a>遍历过程</h3><p><img src="https://ws1.sinaimg.cn/large/e4eff812gy1fwv7rg83dtj20cn07u759.jpg" alt=""></p>
+<h2 id="典型的解空间树"><a href="#典型的解空间树" class="headerlink" title="典型的解空间树"></a>典型的解空间树</h2><h3 id="第一类解空间树：子集树"><a href="#第一类解空间树：子集树" class="headerlink" title="第一类解空间树：子集树"></a>第一类解空间树：子集树</h3><p>当问题是：从n个元素的集合S中找出满足某种性质的子集时相应的解空间树称为子集树，例如n个物品的0/1背包问题。</p>
+<ul>
+<li>这类子集树通常有2^n个叶结点</li>
+<li>解空间树的结点总数为2^(n+1) - 1</li>
+<li>遍历子集树的算法需Ω(2^n)计算时间</li>
+</ul>
+<h3 id="第二类解空间树：排列树"><a href="#第二类解空间树：排列树" class="headerlink" title="第二类解空间树：排列树"></a>第二类解空间树：排列树</h3><p>当问题是：确定n个元素满足某种性质的排列时相应的解空间树称为排列树，例如旅行商问题。</p>
+<p>DFS搜索在程序中可以两种方式来实现，分别是<strong>非递归方式</strong>和<strong>递归方式</strong>。前者思路更加清晰，便于理解，后者代码更加简洁高效。</p>
+<h2 id="非递归实现"><a href="#非递归实现" class="headerlink" title="非递归实现"></a>非递归实现</h2><p>非递归实现需要借助堆栈(先入后出，后入先出)，在C++中使用stack容器即可。</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>若给定一个序列，需要找到其中的一个子序列，判断是否满足一定的条件。下面将程序实现DFS对子序列的搜索过程。</p>
+<h3 id="实现步骤："><a href="#实现步骤：" class="headerlink" title="实现步骤："></a>实现步骤：</h3><p>1、首先将根节点放入堆栈中。</p>
+<p>2、从堆栈中取出第一个节点，并检验它是否为目标。</p>
+<ul>
+<li>如果找到目标，则结束搜寻并回传结果。</li>
+<li>否则将它某一个尚未检验过的直接子节点加入堆栈中。</li>
+</ul>
+<p>3、重复步骤2。</p>
+<p>4、如果不存在未检测过的直接子节点。</p>
+<ul>
+<li>将上一级节点加入堆栈中。</li>
+<li>重复步骤2。</li>
+</ul>
+<p>5、重复步骤4。</p>
+<p>6、若堆栈为空，表示整张图都检查过了——亦即图中没有欲搜寻的目标。结束搜寻并回传“找不到目标”。</p>
+<h3 id="C-代码"><a href="#C-代码" class="headerlink" title="C++代码"></a>C++代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*********************************************************************</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* Ran Chen &lt;wychencr@163.com&gt;</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* Back-track algorithm （by DFS）</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">*********************************************************************/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">int</span> num;  <span class="comment">// 节点中元素个数</span></span><br><span class="line">	<span class="keyword">int</span> sum;  <span class="comment">// 节点中元素和</span></span><br><span class="line">	<span class="keyword">int</span> rank;  <span class="comment">// 搜索树的层级</span></span><br><span class="line">	<span class="keyword">int</span> flag;  <span class="comment">// 0表示子节点都没访问过，1表示访问过左节点，2表示访问过左右节点</span></span><br><span class="line">	<span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; path;  <span class="comment">// 节点元素</span></span><br><span class="line"></span><br><span class="line">	Node();</span><br><span class="line">	Node(<span class="keyword">const</span> Node &amp; nd);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认构造函数</span></span><br><span class="line">Node::Node()</span><br><span class="line">&#123;</span><br><span class="line">	num = <span class="number">0</span>;</span><br><span class="line">	sum = <span class="number">0</span>;</span><br><span class="line">	rank = <span class="number">0</span>;</span><br><span class="line">	flag = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">// path is empty</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 复制构造函数</span></span><br><span class="line">Node::Node(<span class="keyword">const</span> Node &amp; nd)</span><br><span class="line">&#123;</span><br><span class="line">	num = nd.num;</span><br><span class="line">	sum = nd.sum;</span><br><span class="line">	rank = nd.rank;</span><br><span class="line">	flag = nd.flag;</span><br><span class="line">	path = nd.path;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// -----------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; &amp; <span class="built_in">deque</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">stack</span> &lt;Node *&gt; stk;  <span class="comment">// 存储节点对应的指针</span></span><br><span class="line">	<span class="built_in">stack</span> &lt;Node *&gt; pre_stk;  <span class="comment">// 存储上一级节点（回溯队列）</span></span><br><span class="line">	Node * now = <span class="keyword">new</span> Node;  <span class="comment">// 指向当前节点</span></span><br><span class="line">	Node * next = <span class="literal">NULL</span>;  <span class="comment">// 指向下一个节点</span></span><br><span class="line">	Node * previous = <span class="literal">NULL</span>;  <span class="comment">// 指向上一个节点</span></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span> (now)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (now-&gt;rank &lt; <span class="built_in">deque</span>.size() &amp;&amp; (now-&gt;flag == <span class="number">0</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">// 左叶子节点,选择当前rank的数字</span></span><br><span class="line">			next = <span class="keyword">new</span> Node(*now);</span><br><span class="line"></span><br><span class="line">			next-&gt;num++;</span><br><span class="line">			next-&gt;sum += <span class="built_in">deque</span>[next-&gt;rank];</span><br><span class="line">			next-&gt;path.push_back(<span class="built_in">deque</span>[next-&gt;rank]);</span><br><span class="line">			next-&gt;rank++;</span><br><span class="line">			next-&gt;flag = <span class="number">0</span>;</span><br><span class="line">			 </span><br><span class="line">			stk.push(next);  <span class="comment">// 将左节点加入堆栈中</span></span><br><span class="line">			now-&gt;flag = <span class="number">1</span>;  <span class="comment">// 改变标志位</span></span><br><span class="line"></span><br><span class="line">			<span class="comment">// 将当前节点作为上一级节点存储并删除</span></span><br><span class="line">			previous = <span class="keyword">new</span> Node(*now);</span><br><span class="line">			pre_stk.push(previous);</span><br><span class="line">			<span class="keyword">delete</span> (now);</span><br><span class="line"></span><br><span class="line">			<span class="comment">// 取出堆栈中的待选节点作为当前节点</span></span><br><span class="line">			now = stk.top();</span><br><span class="line">			stk.pop();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			<span class="comment">// 显示搜索路径</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; next-&gt;path.size(); ++i)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; next-&gt;path[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">continue</span>;  <span class="comment">// DFS每次仅选取一个子节点，再进入下一步循环</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (now-&gt;rank &lt; <span class="built_in">deque</span>.size() &amp;&amp; (now-&gt;flag == <span class="number">1</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">// 右节点，不选择当前rank的数字</span></span><br><span class="line">			next = <span class="keyword">new</span> Node(*now);</span><br><span class="line"></span><br><span class="line">			next-&gt;rank++;</span><br><span class="line">			next-&gt;flag = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">			stk.push(next);</span><br><span class="line">			now-&gt;flag = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">			<span class="comment">// 将当前节点作为上一级节点存储并删除</span></span><br><span class="line">			previous = <span class="keyword">new</span> Node(*now);</span><br><span class="line">			pre_stk.push(previous);</span><br><span class="line">			<span class="keyword">delete</span> (now);</span><br><span class="line"></span><br><span class="line">			<span class="comment">// 取出堆栈中的待选节点作为当前节点</span></span><br><span class="line">			now = stk.top();</span><br><span class="line">			stk.pop();</span><br><span class="line"></span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 回溯结束</span></span><br><span class="line">		<span class="keyword">if</span> (pre_stk.empty())</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 没有子节点或者没有未搜索过的子节点时，回退到上一级节点（回溯）</span></span><br><span class="line">		<span class="keyword">if</span> (now-&gt;rank &gt;= <span class="built_in">deque</span>.size() || now-&gt;flag == <span class="number">2</span>)</span><br><span class="line">		&#123;			</span><br><span class="line">			<span class="keyword">delete</span> (now);</span><br><span class="line">			now = pre_stk.top();</span><br><span class="line">			pre_stk.pop();</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// -----------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">stack</span> &lt;Node*&gt; stk;</span><br><span class="line">	<span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; <span class="built_in">deque</span> &#123; <span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span> &#125;;</span><br><span class="line">	DFS(<span class="built_in">deque</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cin</span>.get();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p><img src="https://ws1.sinaimg.cn/large/e4eff812gy1fwv7rs8klqj20hk09mjr6.jpg" alt=""></p>
+<h3 id="程序说明"><a href="#程序说明" class="headerlink" title="程序说明"></a>程序说明</h3><p>1、定义了一个Node节点类，表示当前状态下已经搜索到的序列，path记录了这个子序列的值，并且类中添加了num（子序列中元素数目）、sum（子序列元素和）等属性，通过这些属性可以判断是否找到满意解或者用于剪枝。</p>
+<p>2、对于原始序列中某个位置的数，其子序列中可以包含这个数，也可以不包含这个数，所以每次有两种选择，即每个节点有两个子节点。</p>
+<p>3、flag属性标识了当前节点的子节点遍历情况。若flag=0，表示子节点都没访问过，下一步优先访问左节点，所以将左节点加入堆栈中；flag=1，表示访问过左节点，下一步访问右节点；flag=2，表示访问过左右节点。</p>
+<p>4、当没有子节点（now-&gt;rank &gt;= deque.size()）或者左右节点都访问过时（flag=2），回溯到上一级节点。</p>
+<p>5、程序循环中，首先通过now当前节点，找到下一个子节点next，将其加入堆栈中，便于下一步循环。在now节点销毁前，将其存到previous，并加入pre_stk堆栈中。这样在下一轮循环中，previous相对于now就是上一级节点，如果now不能找到其子节点，就要返回上一级，这样previous就可以重新赋给now，达到返回上一级的目的。</p>
+<p>6、整个程序的终止条件是pre_stk堆栈为空时截止，说明所有节点都已经遍历过，并且没有再可回溯的节点了。实际运用中，可以通过其他属性（搜索到可行解）来提前终止程序。</p>
+<h2 id="递归实现"><a href="#递归实现" class="headerlink" title="递归实现"></a>递归实现</h2><p>参考自<a href="https://blog.csdn.net/Coding_Or_Dead/article/details/52326519" target="_blank" rel="noopener">Coding_Or_Dead的博客</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, k; __int64 sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">4</span>] = &#123; <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span> &#125;, vis[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> cnt, <span class="keyword">int</span> sm)</span><span class="comment">//i为数组元素下标,sm为cnt个数字的乘积</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (cnt == k)  <span class="comment">// 解中已包含k个数字</span></span><br><span class="line">	&#123; </span><br><span class="line">		sum = sum + sm; <span class="keyword">return</span>; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (i &gt;= n) </span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!vis[i])</span><br><span class="line">	&#123;   </span><br><span class="line">		<span class="comment">// 对第i个数字进行访问</span></span><br><span class="line">		vis[i] = <span class="number">1</span>;</span><br><span class="line">		<span class="comment">//a[i]被选，优先选择第i个加入到解中，接下来搜索第i+1个数字</span></span><br><span class="line">		DFS(i + <span class="number">1</span>, cnt + <span class="number">1</span>, sm*a[i]); </span><br><span class="line"></span><br><span class="line">		<span class="comment">//a[i]不选，不选择第i个，相当于右节点，接下来搜素第i+1个数字</span></span><br><span class="line">		DFS(i + <span class="number">1</span>, cnt, sm);        </span><br><span class="line">		vis[i] = <span class="number">0</span>;  <span class="comment">// 回溯</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = <span class="number">4</span>, k = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">	DFS(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>, sum);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">std</span>::system(<span class="string">"pause"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="程序说明-1"><a href="#程序说明-1" class="headerlink" title="程序说明"></a>程序说明</h3><p>1、程序目的：给定n个正整数，求出这n个正整数中所有任选k个相乘后的和，这里的数组a[4]存储原序列，vis[4]作为访问标志，k取2，结果输出为101，对应的序列是<code>{2, 3}{2, 5}{2, 7}{3, 5}{3, 7}{5, 7}</code>。</p>
+<p>2、对于元素a[i]，每次对应两个选择。若选择将a[i]加入到解中，则解中元素个数+1，乘积结果<em>a[i]，所以下一步更新为`DFS(i + 1, cnt + 1, sm</em>a[i])<code>。若不选择a[i]，则解中的元素个数和乘积不变，下一步更新为</code>DFS(i + 1, cnt, sm)`。</p>
+<p>3、回溯时要将标志位重置。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">深度优先搜索 - 维基百科，自由的百科全书</a></li>
+<li><a href="https://blog.csdn.net/Coding_Or_Dead/article/details/52326519" target="_blank" rel="noopener">DFS深度优先搜索(入门) - CSDN博客</a></li>
+<li><a href="https://www.cnblogs.com/Ran-Chen/p/9407300.html" target="_blank" rel="noopener">广度优先搜索 BFS算法 - 东聃 - 博客园</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/DFS/" rel="tag"># DFS</a>
+          
+            <a href="/tags/c/" rel="tag"># c++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/03/IntelliJ-IDEA连接数据库详细过程/" rel="next" title="IntelliJ IDEA连接数据库详细过程">
+                <i class="fa fa-chevron-left"></i> IntelliJ IDEA连接数据库详细过程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/12/MATLAB安装libsvm工具箱的方法/" rel="prev" title="MATLAB安装libsvm工具箱的方法">
+                MATLAB安装libsvm工具箱的方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MDM2Ny8xNjg5NA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Ran Chen</p>
+              <p class="site-description motion-element" itemprop="description">Summary Sharing and Communication</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本思想"><span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方法"><span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历过程"><span class="nav-text">遍历过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#典型的解空间树"><span class="nav-text">典型的解空间树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一类解空间树：子集树"><span class="nav-text">第一类解空间树：子集树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二类解空间树：排列树"><span class="nav-text">第二类解空间树：排列树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非递归实现"><span class="nav-text">非递归实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现步骤："><span class="nav-text">实现步骤：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-代码"><span class="nav-text">C++代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行结果"><span class="nav-text">运行结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序说明"><span class="nav-text">程序说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归实现"><span class="nav-text">递归实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#程序说明-1"><span class="nav-text">程序说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ran Chen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
