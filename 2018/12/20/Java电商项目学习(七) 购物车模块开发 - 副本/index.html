@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Java,MySql," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -83,28 +83,18 @@
 
 
 
-<meta name="description" content="数据表结构用户表 表示注册用户的信息，用户名、密码、密保等。 用户名建立唯一索引。 分类表 表示分类信息，id对应的是当前分类，是parent_id所对应的分类的子分类。 产品表 表示商品信息，包括名称、价格、详情介绍等。 decimal(20， 2)表示18个整数位，两个小数位。 购物车表 支付信息表 订单表 订单明细表 可以使用用户id和订单号组合索引。 收货地址表 数据表关系  用户注册后，">
-<meta name="keywords" content="Java,MySql">
+<meta name="description" content="购物车接口设计 门户购物车接口 链接   查询购物车列表 控制层只需要HttpSession参数，获取登录信息，并得到userId供服务层处理  将查询的购物车列表封装成一个CartVo对象，包含了一个CartProductVo列表、购物车总价、是否全选、imageHost，其结构为： 123456public class CartVo &amp;#123;    private List&amp;lt;Cart">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java电商项目学习（二） 数据表结构设计">
-<meta property="og:url" content="https://chenran.tk/2018/11/15/Java电商项目学习(二) 数据表结构设计/index.html">
+<meta property="og:title" content="Java电商项目学习（七） 购物车模块开发">
+<meta property="og:url" content="https://chenran.tk/2018/12/20/Java电商项目学习(七) 购物车模块开发 - 副本/index.html">
 <meta property="og:site_name" content="Ran Chen&#39;s Home">
-<meta property="og:description" content="数据表结构用户表 表示注册用户的信息，用户名、密码、密保等。 用户名建立唯一索引。 分类表 表示分类信息，id对应的是当前分类，是parent_id所对应的分类的子分类。 产品表 表示商品信息，包括名称、价格、详情介绍等。 decimal(20， 2)表示18个整数位，两个小数位。 购物车表 支付信息表 订单表 订单明细表 可以使用用户id和订单号组合索引。 收货地址表 数据表关系  用户注册后，">
+<meta property="og:description" content="购物车接口设计 门户购物车接口 链接   查询购物车列表 控制层只需要HttpSession参数，获取登录信息，并得到userId供服务层处理  将查询的购物车列表封装成一个CartVo对象，包含了一个CartProductVo列表、购物车总价、是否全选、imageHost，其结构为： 123456public class CartVo &amp;#123;    private List&amp;lt;Cart">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/e4eff812gy1fww1td3tm7j20ro09zdih.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/e4eff812gy1fww1psd66sj20td08in4n.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/e4eff812gy1fww1rs2kfjj20ru0aigo7.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/e4eff812gy1fww1ynyc28j20sf09tdhn.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/e4eff812gy1fww22110prj20si09hwgg.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/e4eff812gy1fww24i17w6j20sn0aiq4y.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/e4eff812gy1fww7i3xn4pj20rf0ak101.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/e4eff812gy1fww2c3cjtgj20rl0a0tbi.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/e4eff812gy1fww39883r2j20ji0h5mzr.jpg">
-<meta property="og:updated_time" content="2018-12-07T07:04:01.861Z">
+<meta property="og:updated_time" content="2018-12-11T02:19:36.089Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java电商项目学习（二） 数据表结构设计">
-<meta name="twitter:description" content="数据表结构用户表 表示注册用户的信息，用户名、密码、密保等。 用户名建立唯一索引。 分类表 表示分类信息，id对应的是当前分类，是parent_id所对应的分类的子分类。 产品表 表示商品信息，包括名称、价格、详情介绍等。 decimal(20， 2)表示18个整数位，两个小数位。 购物车表 支付信息表 订单表 订单明细表 可以使用用户id和订单号组合索引。 收货地址表 数据表关系  用户注册后，">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e4eff812gy1fww1td3tm7j20ro09zdih.jpg">
+<meta name="twitter:title" content="Java电商项目学习（七） 购物车模块开发">
+<meta name="twitter:description" content="购物车接口设计 门户购物车接口 链接   查询购物车列表 控制层只需要HttpSession参数，获取登录信息，并得到userId供服务层处理  将查询的购物车列表封装成一个CartVo对象，包含了一个CartProductVo列表、购物车总价、是否全选、imageHost，其结构为： 123456public class CartVo &amp;#123;    private List&amp;lt;Cart">
 
 
 
@@ -134,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://chenran.tk/2018/11/15/Java电商项目学习(二) 数据表结构设计/"/>
+  <link rel="canonical" href="https://chenran.tk/2018/12/20/Java电商项目学习(七) 购物车模块开发 - 副本/"/>
 
 
 
 
 
-  <title>Java电商项目学习（二） 数据表结构设计 | Ran Chen's Home</title>
+  <title>Java电商项目学习（七） 购物车模块开发 | Ran Chen's Home</title>
   
 
 
@@ -311,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chenran.tk/2018/11/15/Java电商项目学习(二) 数据表结构设计/">
+    <link itemprop="mainEntityOfPage" href="https://chenran.tk/2018/12/20/Java电商项目学习(七) 购物车模块开发 - 副本/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ran Chen">
@@ -328,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java电商项目学习（二） 数据表结构设计</h1>
+          <h1 class="post-title" itemprop="name headline">Java电商项目学习（七） 购物车模块开发</h1>
         
 
         <div class="post-meta">
@@ -340,8 +330,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T15:10:25+08:00">
-                2018-11-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-20T10:18:35+08:00">
+                2018-12-20
               </time>
             
 
@@ -400,33 +390,73 @@
       
 
       
-        <h3 id="数据表结构"><a href="#数据表结构" class="headerlink" title="数据表结构"></a>数据表结构</h3><h4 id="用户表"><a href="#用户表" class="headerlink" title="用户表"></a>用户表</h4><p><img src="https://ws1.sinaimg.cn/large/e4eff812gy1fww1td3tm7j20ro09zdih.jpg" alt=""></p>
-<p>表示注册用户的信息，用户名、密码、密保等。</p>
-<p>用户名建立唯一索引。</p>
-<h4 id="分类表"><a href="#分类表" class="headerlink" title="分类表"></a>分类表</h4><p><img src="https://ws1.sinaimg.cn/large/e4eff812gy1fww1psd66sj20td08in4n.jpg" alt=""></p>
-<p>表示分类信息，id对应的是当前分类，是parent_id所对应的分类的子分类。</p>
-<h4 id="产品表"><a href="#产品表" class="headerlink" title="产品表"></a>产品表</h4><p><img src="https://ws1.sinaimg.cn/large/e4eff812gy1fww1rs2kfjj20ru0aigo7.jpg" alt=""></p>
-<p>表示商品信息，包括名称、价格、详情介绍等。</p>
-<p>decimal(20， 2)表示18个整数位，两个小数位。</p>
-<h4 id="购物车表"><a href="#购物车表" class="headerlink" title="购物车表"></a>购物车表</h4><p><img src="https://ws1.sinaimg.cn/large/e4eff812gy1fww1ynyc28j20sf09tdhn.jpg" alt=""></p>
-<h4 id="支付信息表"><a href="#支付信息表" class="headerlink" title="支付信息表"></a>支付信息表</h4><p><img src="https://ws1.sinaimg.cn/large/e4eff812gy1fww22110prj20si09hwgg.jpg" alt=""></p>
-<h4 id="订单表"><a href="#订单表" class="headerlink" title="订单表"></a>订单表</h4><p><img src="https://ws1.sinaimg.cn/large/e4eff812gy1fww24i17w6j20sn0aiq4y.jpg" alt=""></p>
-<h4 id="订单明细表"><a href="#订单明细表" class="headerlink" title="订单明细表"></a>订单明细表</h4><p><img src="https://ws1.sinaimg.cn/large/e4eff812gy1fww7i3xn4pj20rf0ak101.jpg" alt=""></p>
-<p>可以使用用户id和订单号组合索引。</p>
-<h4 id="收货地址表"><a href="#收货地址表" class="headerlink" title="收货地址表"></a>收货地址表</h4><p><img src="https://ws1.sinaimg.cn/large/e4eff812gy1fww2c3cjtgj20rl0a0tbi.jpg" alt=""></p>
-<h3 id="数据表关系"><a href="#数据表关系" class="headerlink" title="数据表关系"></a>数据表关系</h3><p><img src="https://ws1.sinaimg.cn/large/e4eff812gy1fww39883r2j20ji0h5mzr.jpg" alt=""></p>
-<ul>
-<li>用户注册后，信息填入user表中，登陆是读取user表</li>
-<li>搜索产品时需要分类表和产品表，对于传入的分类id，进行分类表递归，找到所有符合分类的产品</li>
-<li>选定产品加入购物车时，将user_id、product_id等信息放到购物车表</li>
-<li>提交的订单后，需要填写购物地址等信息，存在收货地址表</li>
-<li>然后生成订单号，对订单表进行处理，支付信息根据购物车表来计算</li>
-<li>最后根据支付信息表的状态，修改订单表的状态</li>
+        <h3 id="购物车接口设计"><a href="#购物车接口设计" class="headerlink" title="购物车接口设计"></a>购物车接口设计</h3><ul>
+<li><p>门户购物车接口</p>
+<p><a href="https://gitee.com/imooccode/happymmallwiki/wikis/%E9%97%A8%E6%88%B7_%E8%B4%AD%E7%89%A9%E8%BD%A6%E6%8E%A5%E5%8F%A3?sort_id=9919" target="_blank" rel="noopener">链接</a></p>
+</li>
 </ul>
-<p><strong>索引与时间戳</strong></p>
-<ul>
-<li>唯一索引可以避免信息提交重复，并且加快搜索时间</li>
-<li>时间戳包括了<strong>创建时间</strong>和<strong>更新时间</strong>两个字段</li>
+<h3 id="查询购物车列表"><a href="#查询购物车列表" class="headerlink" title="查询购物车列表"></a>查询购物车列表</h3><ul>
+<li><p>控制层只需要HttpSession参数，获取登录信息，并得到userId供服务层处理</p>
+</li>
+<li><p>将查询的购物车列表封装成一个<strong>CartVo</strong>对象，包含了一个CartProductVo列表、购物车总价、是否全选、imageHost，其结构为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CartVo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;CartProductVo&gt; cartProductVoList;</span><br><span class="line">    <span class="keyword">private</span> BigDecimal cartTotalPrice;</span><br><span class="line">    <span class="keyword">private</span> Boolean allChecked;</span><br><span class="line">    <span class="keyword">private</span> String imageHost;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中<strong>CartProductVo</strong>也是一个Vo对象，表示购物车中某一种产品的详细信息，其结构为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CartProductVo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> Integer userId;</span><br><span class="line">    <span class="keyword">private</span> Integer productId;</span><br><span class="line">    <span class="keyword">private</span> Integer quantity;</span><br><span class="line">    <span class="keyword">private</span> String productName;</span><br><span class="line">    <span class="keyword">private</span> String productSubtitle;</span><br><span class="line">    <span class="keyword">private</span> String productMainImage;</span><br><span class="line">    <span class="keyword">private</span> BigDecimal productPrice;</span><br><span class="line">    <span class="keyword">private</span> Integer productStatus;</span><br><span class="line">    <span class="keyword">private</span> BigDecimal productTotalPrice;</span><br><span class="line">    <span class="keyword">private</span> Integer productStock;  <span class="comment">// 产品库存</span></span><br><span class="line">    <span class="keyword">private</span> Integer productChecked;  <span class="comment">// 产品是否被勾选</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String limitQuantity;  <span class="comment">// 限制数量的返回结果</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在服务层定义一个getCartVoLimit方法，参数为userId，返回值为<strong>CartVo</strong>对象。实现过程为：首先通过userId从数据库中查找属于该用户的cart列表，然后遍历列表，根据单个的cart中的产品Id查询对应的product，再结合cart和product中的信息，封装成<strong>CartProductVo</strong>，再将CartProductVo添加到cartProductVoList中；</p>
+</li>
+<li><p>cartTotalPrice购物车总价的计算方式是<strong>已勾选</strong>产品的产品总价（单价*数量）之和，其中计<strong>算价格时使用BigDecimal避免精度丢失</strong>；</p>
+</li>
+<li><p>在计算产品总价时，需要先判断购物车中的数量是否大于产品库存数量，如果大于则更新数据库，将购物车中的数量设定为等于产品库存数量，如果小于则直接计算总价；</p>
+</li>
+<li><p>allChecked是根据从数据库中查未checked的数量是不是0得到的；imageHost从属性文件中获得</p>
+</li>
+<li><p>经过以上步骤，可以通过一个userId得到一个CartVo，直接将CartVo作为ServerResponse的data返回即可</p>
+</li>
+<li><p>在测试发现，使用查询购物车列表时出现<strong>500错误</strong>，经过调试，发现是数据库中cart表的productId在product表中查不到，导致了后续的程序错误。解决方法是，在getCartVoLimit方法中，当查询productId时，如果查不到就将cartVo作为null返回；服务层处理函数中，再对cartVo进行判断，如果是null就返回参数错误</p>
+</li>
+</ul>
+<h3 id="添加到购物车"><a href="#添加到购物车" class="headerlink" title="添加到购物车"></a>添加到购物车</h3><ul>
+<li>控制器传入参数为产品Id和数量，首先判断登录情况，如果未登录强制登录，否则将参数交给服务层处理；</li>
+<li>服务层首先校验参数的有效性，然后通过userId和productId从数据库中查询cart；如果cart未查到，则新建一个cart，设置userId、productId、count，设置勾选状态，然后插入到数据库中；否则在查到的cart的基础上更改count，再更新到数据库；</li>
+<li>对数据库更新完成后，查询购物车列表，即根据userId获取cartVo，作为ServerResponse的data返回</li>
+</ul>
+<h3 id="更新购物车"><a href="#更新购物车" class="headerlink" title="更新购物车"></a>更新购物车</h3><ul>
+<li>控制器传入参数为产品Id和数量，首先判断登录情况，如果未登录强制登录，否则将参数交给服务层处理；</li>
+<li>服务层首先校验参数的有效性，然后通过userId和productId从数据库中查询cart，在查到的cart的基础上更改count，再更新到数据库；</li>
+<li>对数据库更新完成后，查询购物车列表，即根据userId获取cartVo，作为ServerResponse的data返回</li>
+</ul>
+<h3 id="删除购车产品"><a href="#删除购车产品" class="headerlink" title="删除购车产品"></a>删除购车产品</h3><ul>
+<li><p>控制器传入参数为productId(<strong>productId是多个产品ID的字符串，由逗号隔开</strong>)，首先判断登录情况，如果未登录强制登录，否则将参数交给服务层处理；</p>
+</li>
+<li><p>服务层将productIds处理成productList，然后再结合userId，从数据库中删除对应的产品项，sql语句为：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">"deleteByUserIdProductIds"</span> <span class="attr">parameterType</span>=<span class="string">"map"</span>&gt;</span></span><br><span class="line">  delete from mmall_cart</span><br><span class="line">  where user_id = #&#123;userId&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"productIdList != null"</span>&gt;</span></span><br><span class="line">    and product_id in</span><br><span class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"productIdList"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">index</span>=<span class="string">"index"</span> <span class="attr">open</span>=<span class="string">"("</span> <span class="attr">separator</span>=<span class="string">","</span> <span class="attr">close</span>=<span class="string">")"</span>&gt;</span></span><br><span class="line">      #&#123;item&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对数据库更新完成后，查询购物车列表，即根据userId获取cartVo，作为ServerResponse的data返回</p>
+</li>
+</ul>
+<h3 id="单选-取消单选"><a href="#单选-取消单选" class="headerlink" title="单选/取消单选"></a>单选/取消单选</h3><ul>
+<li><p>控制器传入参数为HttpSession和productId，首先判断登录情况，如果未登录强制登录，否则将参数交给服务层处理；</p>
+</li>
+<li><p>服务层处理函数的参数为userId、productId和勾选状态（单选checked=1，取消单选checked=0），根据这三个参数对数据库中属于该用户的某个产品项的勾选状态进行更改，其中sql语句为：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"checkedOrUncheckedProduct"</span> <span class="attr">parameterType</span>=<span class="string">"map"</span>&gt;</span></span><br><span class="line">    UPDATE  mmall_cart</span><br><span class="line">    set checked = #&#123;checked&#125;,</span><br><span class="line">    update_time = now()</span><br><span class="line">    where user_id = #&#123;userId&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"productId != null"</span>&gt;</span></span><br><span class="line">      and product_id = #&#123;productId&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后查询购物车列表，将cartVo作为ServerResponse的data返回即可</p>
+</li>
+</ul>
+<h3 id="全选-取消全选"><a href="#全选-取消全选" class="headerlink" title="全选/取消全选"></a>全选/取消全选</h3><ul>
+<li>控制器传入参数为HttpSession，首先判断登录情况，如果未登录强制登录，否则将参数交给服务层处理；</li>
+<li>服务层处理函数的参数同上，因此<strong>对于productId参数，在控制器传入时设置为null</strong>，在mysql语句中已经对null情况作了判断</li>
+</ul>
+<h3 id="查询购物车产品总数"><a href="#查询购物车产品总数" class="headerlink" title="查询购物车产品总数"></a>查询购物车产品总数</h3><ul>
+<li><p>控制器传入参数为HttpSession，首先判断登录情况，如果<strong>未登录则返回0</strong>，否则将参数交给服务层处理；</p>
+</li>
+<li><p>服务层处理函数根据userId查询购物车中产品总数量，查询语句为：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectCartProductCount"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">resultType</span>=<span class="string">"int"</span>&gt;</span></span><br><span class="line">  select IFNULL(sum(quantity),0) as count from mmall_cart where user_id = #&#123;userId&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>值得注意的是，有可能根据userId查不到结果，为了避免出现null的情况，使用IFNULL()语句，设置默认返回值为0；</p>
+</li>
+<li><p>最后将查到的整形返回值作为ServerResponse的data返回</p>
+</li>
 </ul>
 
       
@@ -447,8 +477,6 @@
           
             <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/MySql/" rel="tag"># MySql</a>
-          
         </div>
       
 
@@ -460,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/15/剑指offer题解02-10/" rel="next" title="剑指offer题解02-10">
-                <i class="fa fa-chevron-left"></i> 剑指offer题解02-10
+              <a href="/2018/12/10/Java电商项目学习(六) 商品管理模块开发 - 副本/" rel="next" title="Java电商项目学习（六） 商品管理模块开发">
+                <i class="fa fa-chevron-left"></i> Java电商项目学习（六） 商品管理模块开发
               </a>
             
           </div>
@@ -470,8 +498,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/20/Java电商项目学习(三) 项目初始化/" rel="prev" title="Java电商项目学习（三） 项目初始化">
-                Java电商项目学习（三） 项目初始化 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/25/Java电商项目学习(八) 收货地址模块开发/" rel="prev" title="Java电商项目学习（八） 收货地址模块开发">
+                Java电商项目学习（八） 收货地址模块开发 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -609,7 +637,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据表结构"><span class="nav-text">数据表结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#用户表"><span class="nav-text">用户表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类表"><span class="nav-text">分类表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#产品表"><span class="nav-text">产品表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#购物车表"><span class="nav-text">购物车表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支付信息表"><span class="nav-text">支付信息表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#订单表"><span class="nav-text">订单表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#订单明细表"><span class="nav-text">订单明细表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#收货地址表"><span class="nav-text">收货地址表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据表关系"><span class="nav-text">数据表关系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#购物车接口设计"><span class="nav-text">购物车接口设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询购物车列表"><span class="nav-text">查询购物车列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加到购物车"><span class="nav-text">添加到购物车</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新购物车"><span class="nav-text">更新购物车</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除购车产品"><span class="nav-text">删除购车产品</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单选-取消单选"><span class="nav-text">单选/取消单选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全选-取消全选"><span class="nav-text">全选/取消全选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询购物车产品总数"><span class="nav-text">查询购物车产品总数</span></a></li></ol></div>
             
 
           </div>
