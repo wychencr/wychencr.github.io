@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Git,Github," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -83,20 +83,18 @@
 
 
 
-<meta name="description" content="一、git工作流程  Workspace工作区：是当前工作目录，可以在此目录编辑文件 Index缓存区：add指令，保存文件的改动 Repository仓库：commit指令，将多次的文件改动最后提交 Remote远程仓库：可以将本地仓库代码传到远程仓库上，方便多人远程协作  二、常用操作1、初始化仓库1$ git init 2、加到缓存区12345678# 指定文件，提交到暂存区$ git ad">
-<meta name="keywords" content="Git,Github">
+<meta name="description" content="订单管理接口设计 前台订单管理接口 链接  后台订单管理接口 链接   创建订单 控制器中传入参数为session和收货地址ID，首先校验用户是否登录，如果是则将用户id和shippingId交给服务层控制函数处理；  服务层处理函数首先根据userId查询购物车表，得到购物车中已勾选的商品明细，然后遍历得到订单总价（前提要校验产品售卖状态和库存），转换为订单明细的列表，再生成订单Order（订单">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git使用的常用命令">
-<meta property="og:url" content="https://chenran.tk/2018/10/19/Git使用-常用命令/index.html">
+<meta property="og:title" content="Java电商项目学习（十） 订单管理模块开发">
+<meta property="og:url" content="https://chenran.tk/2018/12/29/Java电商项目学习(十) 订单管理模块开发/index.html">
 <meta property="og:site_name" content="Ran Chen&#39;s Home">
-<meta property="og:description" content="一、git工作流程  Workspace工作区：是当前工作目录，可以在此目录编辑文件 Index缓存区：add指令，保存文件的改动 Repository仓库：commit指令，将多次的文件改动最后提交 Remote远程仓库：可以将本地仓库代码传到远程仓库上，方便多人远程协作  二、常用操作1、初始化仓库1$ git init 2、加到缓存区12345678# 指定文件，提交到暂存区$ git ad">
+<meta property="og:description" content="订单管理接口设计 前台订单管理接口 链接  后台订单管理接口 链接   创建订单 控制器中传入参数为session和收货地址ID，首先校验用户是否登录，如果是则将用户id和shippingId交给服务层控制函数处理；  服务层处理函数首先根据userId查询购物车表，得到购物车中已勾选的商品明细，然后遍历得到订单总价（前提要校验产品售卖状态和库存），转换为订单明细的列表，再生成订单Order（订单">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/e4eff812gy1fwdj15t3o0j20gy064aa3.jpg">
-<meta property="og:updated_time" content="2018-10-19T08:56:29.371Z">
+<meta property="og:updated_time" content="2018-12-14T04:47:30.739Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git使用的常用命令">
-<meta name="twitter:description" content="一、git工作流程  Workspace工作区：是当前工作目录，可以在此目录编辑文件 Index缓存区：add指令，保存文件的改动 Repository仓库：commit指令，将多次的文件改动最后提交 Remote远程仓库：可以将本地仓库代码传到远程仓库上，方便多人远程协作  二、常用操作1、初始化仓库1$ git init 2、加到缓存区12345678# 指定文件，提交到暂存区$ git ad">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/e4eff812gy1fwdj15t3o0j20gy064aa3.jpg">
+<meta name="twitter:title" content="Java电商项目学习（十） 订单管理模块开发">
+<meta name="twitter:description" content="订单管理接口设计 前台订单管理接口 链接  后台订单管理接口 链接   创建订单 控制器中传入参数为session和收货地址ID，首先校验用户是否登录，如果是则将用户id和shippingId交给服务层控制函数处理；  服务层处理函数首先根据userId查询购物车表，得到购物车中已勾选的商品明细，然后遍历得到订单总价（前提要校验产品售卖状态和库存），转换为订单明细的列表，再生成订单Order（订单">
 
 
 
@@ -126,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://chenran.tk/2018/10/19/Git使用-常用命令/"/>
+  <link rel="canonical" href="https://chenran.tk/2018/12/29/Java电商项目学习(十) 订单管理模块开发/"/>
 
 
 
 
 
-  <title>Git使用的常用命令 | Ran Chen's Home</title>
+  <title>Java电商项目学习（十） 订单管理模块开发 | Ran Chen's Home</title>
   
 
 
@@ -303,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chenran.tk/2018/10/19/Git使用-常用命令/">
+    <link itemprop="mainEntityOfPage" href="https://chenran.tk/2018/12/29/Java电商项目学习(十) 订单管理模块开发/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ran Chen">
@@ -320,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git使用的常用命令</h1>
+          <h1 class="post-title" itemprop="name headline">Java电商项目学习（十） 订单管理模块开发</h1>
         
 
         <div class="post-meta">
@@ -332,8 +330,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-19T14:38:25+08:00">
-                2018-10-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-29T14:32:24+08:00">
+                2018-12-29
               </time>
             
 
@@ -355,8 +353,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
 
@@ -392,21 +390,59 @@
       
 
       
-        <h2 id="一、git工作流程"><a href="#一、git工作流程" class="headerlink" title="一、git工作流程"></a>一、git工作流程</h2><p><img src="http://ww1.sinaimg.cn/large/e4eff812gy1fwdj15t3o0j20gy064aa3.jpg" alt=""></p>
-<ul>
-<li>Workspace工作区：是当前工作目录，可以在此目录编辑文件</li>
-<li>Index缓存区：add指令，保存文件的改动</li>
-<li>Repository仓库：commit指令，将多次的文件改动最后提交</li>
-<li>Remote远程仓库：可以将本地仓库代码传到远程仓库上，方便多人远程协作</li>
+        <h3 id="订单管理接口设计"><a href="#订单管理接口设计" class="headerlink" title="订单管理接口设计"></a>订单管理接口设计</h3><ul>
+<li><p>前台订单管理接口</p>
+<p><a href="https://gitee.com/imooccode/happymmallwiki/wikis/%E9%97%A8%E6%88%B7_%E8%AE%A2%E5%8D%95%E6%8E%A5%E5%8F%A3?sort_id=9918" target="_blank" rel="noopener">链接</a></p>
+</li>
+<li><p>后台订单管理接口</p>
+<p><a href="https://gitee.com/imooccode/happymmallwiki/wikis/%E5%90%8E%E5%8F%B0_%E8%AE%A2%E5%8D%95%E6%8E%A5%E5%8F%A3?sort_id=9913" target="_blank" rel="noopener">链接</a></p>
+</li>
 </ul>
-<h2 id="二、常用操作"><a href="#二、常用操作" class="headerlink" title="二、常用操作"></a>二、常用操作</h2><h3 id="1、初始化仓库"><a href="#1、初始化仓库" class="headerlink" title="1、初始化仓库"></a>1、初始化仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
-<h3 id="2、加到缓存区"><a href="#2、加到缓存区" class="headerlink" title="2、加到缓存区"></a>2、加到缓存区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 指定文件，提交到暂存区</span><br><span class="line">$ git add &lt;filename&gt;</span><br><span class="line"></span><br><span class="line"># 将工作区的变化提交到暂存区，包括文件修改和新增，但是不包括删除的文件</span><br><span class="line">$ git add .</span><br><span class="line"></span><br><span class="line"># 将工作区的变化提交到暂存区，包括新增，删除和修改的所有内容</span><br><span class="line">$ git add -A</span><br></pre></td></tr></table></figure>
-<h3 id="3、提交到版本库"><a href="#3、提交到版本库" class="headerlink" title="3、提交到版本库"></a>3、提交到版本库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 将修改从暂存区提交到版本库，并添加备注message</span><br><span class="line">$ git commit -m “message”</span><br></pre></td></tr></table></figure>
-<h3 id="4、查看信息"><a href="#4、查看信息" class="headerlink" title="4、查看信息"></a>4、查看信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 查看上次提交之后是否有修改</span><br><span class="line">$ git status</span><br><span class="line"># 查看上次提交之后是否有修改，简短输出结果</span><br><span class="line">$ git status -s</span><br><span class="line"></span><br><span class="line"># 查看尚未缓存的改动</span><br><span class="line">$ git diff</span><br><span class="line"># 查看已缓存的改动</span><br><span class="line">$ git diff -cached</span><br><span class="line"># 查看已缓存的与未缓存的所有改动</span><br><span class="line">$ git diff HEAD</span><br><span class="line"></span><br><span class="line"># 显示当前分支的版本历史</span><br><span class="line">$ git log</span><br><span class="line"># 显示commit历史，以及每次commit发生变更的文件</span><br><span class="line">$ git log --stat</span><br><span class="line"># 显示指定文件相关的每一次diff</span><br><span class="line">$ git log -p [file]</span><br></pre></td></tr></table></figure>
-<h3 id="5、回退操作"><a href="#5、回退操作" class="headerlink" title="5、回退操作"></a>5、回退操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 恢复暂存区的指定文件到工作区</span><br><span class="line">$ git checkout [file]</span><br><span class="line"> </span><br><span class="line"># 恢复某个commit的指定文件到暂存区和工作区</span><br><span class="line">$ git checkout [commit] [file]</span><br><span class="line"> </span><br><span class="line"># 恢复暂存区的所有文件到工作区</span><br><span class="line">$ git checkout .</span><br><span class="line"> </span><br><span class="line"># 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</span><br><span class="line">$ git reset [file]</span><br><span class="line"> </span><br><span class="line"># 重置暂存区与工作区，与上一次commit保持一致</span><br><span class="line">$ git reset --hard</span><br></pre></td></tr></table></figure>
-<h3 id="6、分支操作"><a href="#6、分支操作" class="headerlink" title="6、分支操作"></a>6、分支操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># 列出所有本地分支</span><br><span class="line">$ git branch</span><br><span class="line"> </span><br><span class="line"># 列出所有远程分支</span><br><span class="line">$ git branch -r</span><br><span class="line"> </span><br><span class="line"># 列出所有本地分支和远程分支</span><br><span class="line">$ git branch -a</span><br><span class="line"> </span><br><span class="line"># 新建一个分支，但依然停留在当前分支</span><br><span class="line">$ git branch [branch-name]</span><br><span class="line"> </span><br><span class="line"># 新建一个分支，并切换到该分支</span><br><span class="line">$ git checkout -b [branch]</span><br><span class="line"></span><br><span class="line"># 切换到指定分支，并更新工作区</span><br><span class="line">$ git checkout [branch-name]</span><br><span class="line"></span><br><span class="line"># 合并指定分支到当前分支</span><br><span class="line">$ git merge [branch]</span><br><span class="line"> </span><br><span class="line"># 选择一个commit，合并进当前分支</span><br><span class="line">$ git cherry-pick [commit]</span><br><span class="line"> </span><br><span class="line"># 删除分支</span><br><span class="line">$ git branch -d [branch-name]</span><br><span class="line"> </span><br><span class="line"># 删除远程分支</span><br><span class="line">$ git push origin --delete [branch-name]</span><br><span class="line">$ git branch -dr [remote/branch]</span><br></pre></td></tr></table></figure>
-<h3 id="7、克隆仓库"><a href="#7、克隆仓库" class="headerlink" title="7、克隆仓库"></a>7、克隆仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># repo:Git 仓库  directory:本地目录</span><br><span class="line">$ git clone &lt;repo&gt;</span><br><span class="line">$ git clone &lt;repo&gt; &lt;directory&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="8、与远程仓库同步"><a href="#8、与远程仓库同步" class="headerlink" title="8、与远程仓库同步"></a>8、与远程仓库同步</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 增加一个新的远程仓库，并命名</span><br><span class="line">$ git remote add [origin] [url]</span><br><span class="line"> </span><br><span class="line"># 取回远程仓库的变化，并与本地分支合并</span><br><span class="line">$ git pull [remote] [branch]</span><br><span class="line"> </span><br><span class="line"># 上传本地指定分支到远程仓库</span><br><span class="line">$ git push [remote] [branch]</span><br></pre></td></tr></table></figure>
+<h3 id="创建订单"><a href="#创建订单" class="headerlink" title="创建订单"></a>创建订单</h3><ul>
+<li><p>控制器中传入参数为session和收货地址ID，首先校验用户是否登录，如果是则将用户id和shippingId交给服务层控制函数处理；</p>
+</li>
+<li><p>服务层处理函数首先根据userId查询购物车表，得到购物车中<strong>已勾选</strong>的商品明细，然后遍历得到订单总价（前提要校验产品售卖状态和库存），转换为订单明细的列表，再生成订单Order（订单号的生成方式是<code>currentTime + new Random().nextInt(100)</code>，避免重复，后续可以更详细的对订单号的生成方式进行编排），接着遍历订单明细的列表，给每个订单明细OrderItem添加订单号，之后将订单明细列表批量插入到order_item表中</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"batchInsert"</span> <span class="attr">parameterType</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line">  insert into mmall_order_item (id, order_no,user_id, product_id,</span><br><span class="line">    product_name, product_image, current_unit_price,</span><br><span class="line">    quantity, total_price, create_time,</span><br><span class="line">    update_time)</span><br><span class="line">  values</span><br><span class="line">  <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"orderItemList"</span> <span class="attr">index</span>=<span class="string">"index"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">separator</span>=<span class="string">","</span>&gt;</span></span><br><span class="line">    (</span><br><span class="line">    #&#123;item.id&#125;,#&#123;item.orderNo&#125;,#&#123;item.userId&#125;,#&#123;item.productId&#125;,#&#123;item.productName&#125;,#&#123;item.productImage&#125;,#&#123;item.currentUnitPrice&#125;,#&#123;item.quantity&#125;,#&#123;item.totalPrice&#125;,now(),now()</span><br><span class="line">    )</span><br><span class="line">  <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过购物车商品生成订单后，将产品库存减少，并清空购物车中已选的商品</p>
+</li>
+<li><p>返回给前端的订单数据还需要进一步装配，将Order和OrderItemList装配成OrderVo返回即可</p>
+</li>
+</ul>
+<h3 id="取消订单"><a href="#取消订单" class="headerlink" title="取消订单"></a>取消订单</h3><ul>
+<li>控制器中传入参数为session和订单号orderNo，首先校验用户是否登录，如果是则将用户id和orderNo交给服务层控制函数处理；</li>
+<li>服务层处理函数首先根据userId和orderNo查询数据库中的对应订单order，判断订单是否存在，判断订单状态<strong>是否为已支付</strong>，如果订单存在且未支付，则更新订单状态为<strong><code>CANCELED</code></strong>，更新到数据库订单列表中，返回成功</li>
+</ul>
+<h3 id="获取订单商品信息"><a href="#获取订单商品信息" class="headerlink" title="获取订单商品信息"></a>获取订单商品信息</h3><ul>
+<li>控制器中传入参数为session，首先校验用户是否登录，如果是则将用户id交给服务层控制函数处理；</li>
+<li>服务层处理函数中首先根据userId查询购物车中已勾选商品的明细列表cartList，然后转换成订单明细列表orderItemList，再转换成orderItemVo的列表orderItemVoList，并计算订单商品总价，根据以上信息装配orderProductVo，作为ServerResponse的data返回即可</li>
+</ul>
+<h3 id="获取订单详情"><a href="#获取订单详情" class="headerlink" title="获取订单详情"></a>获取订单详情</h3><ul>
+<li>控制器中传入参数为session和订单号orderNo，首先校验用户是否登录，如果是则将用户id和orderNo交给服务层控制函数处理；</li>
+<li>服务层处理函数根据userId和orderNo查询数据库订单表，判断订单order是否存在，然后再根据userId和orderNo查询数据库订单明细表，得到订单明细列表orderItemList，然后根据order和orderItemList装配orderVo，作为ServerResponse的data返回</li>
+</ul>
+<h3 id="获取用户订单分页列表"><a href="#获取用户订单分页列表" class="headerlink" title="获取用户订单分页列表"></a>获取用户订单分页列表</h3><ul>
+<li><p>控制器中传入参数为session、<strong>pageNum</strong>、<strong>pageSize</strong>，首先校验用户是否登录，如果是则将用户id和pageNum、pageSize交给服务层控制函数处理；</p>
+</li>
+<li><p>服务层处理函数仅根据userId查询数据库订单表，得到订单的列表orderList，然后装配成orderVo的列表orderVoList，作为分页信息的列表，最后将分页信息pageInfo作为ServerResponse的data返回即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ServerResponse&lt;PageInfo&gt; <span class="title">getOrderList</span><span class="params">(Integer userId, <span class="keyword">int</span> pageNum, <span class="keyword">int</span> pageSize)</span> </span>&#123;</span><br><span class="line">    PageHelper.startPage(pageNum, pageSize);</span><br><span class="line"></span><br><span class="line">    List&lt;Order&gt; orderList = orderMapper.selectByUserId(userId);</span><br><span class="line">    List&lt;OrderVo&gt; orderVoList = assembleOrderVoList(orderList, userId);</span><br><span class="line"></span><br><span class="line">    PageInfo pageInfo = <span class="keyword">new</span> PageInfo(orderList);</span><br><span class="line">    pageInfo.setList(orderVoList);</span><br><span class="line">    <span class="keyword">return</span> ServerResponse.createBySuccess(pageInfo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="管理员获取用户订单分页列表"><a href="#管理员获取用户订单分页列表" class="headerlink" title="管理员获取用户订单分页列表"></a>管理员获取用户订单分页列表</h3><ul>
+<li><p>与上面类似，不同之处在于控制器中需要判断是否是管理员，服务层查订单表不需要userId，把全部订单表都查出来，分页即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ServerResponse&lt;PageInfo&gt; <span class="title">manageList</span><span class="params">(<span class="keyword">int</span> pageNum, <span class="keyword">int</span> pageSize)</span> </span>&#123;</span><br><span class="line">    PageHelper.startPage(pageNum, pageSize);</span><br><span class="line"></span><br><span class="line">    List&lt;Order&gt; orderList = orderMapper.selectAllOrder();</span><br><span class="line">    List&lt;OrderVo&gt; orderVoList = assembleOrderVoList(orderList, <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">    PageInfo pageInfo = <span class="keyword">new</span> PageInfo(orderList);</span><br><span class="line">    pageInfo.setList(orderVoList);</span><br><span class="line">    <span class="keyword">return</span> ServerResponse.createBySuccess(pageInfo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="管理员获取订单详情"><a href="#管理员获取订单详情" class="headerlink" title="管理员获取订单详情"></a>管理员获取订单详情</h3><ul>
+<li>与普通用户查看订单详情类似，传入参数为session和订单号orderNo，不同之处在于控制器中需要判断是否是管理员，查询数据库时不需要传入userId</li>
+</ul>
+<h3 id="管理员按订单号查询"><a href="#管理员按订单号查询" class="headerlink" title="管理员按订单号查询"></a>管理员按订单号查询</h3><ul>
+<li>与管理员获取订单详情类似，传入参数为session和订单号orderNo，不同之处在于还要添加分页分页参数，为后续的模糊匹配查询作准备</li>
+</ul>
+<h3 id="管理员订单发货"><a href="#管理员订单发货" class="headerlink" title="管理员订单发货"></a>管理员订单发货</h3><ul>
+<li>控制器中传入参数为session和订单号orderNo，首先校验用户是否登录，判断管理员权限，如果是则将orderNo交给服务层控制函数处理；</li>
+<li>服务层处理函数根据orderNo查询数据库订单表，判断订单是否存在，再判断订单状态是否为已支付，如果是则更新状态为<strong><code>SHIPPED</code></strong>，并同时更新发货时间，更新到数据库中，返回“发货成功”</li>
+</ul>
 
       
     </div>
@@ -424,9 +460,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag"># Git</a>
-          
-            <a href="/tags/Github/" rel="tag"># Github</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
         </div>
       
@@ -439,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/18/使用Hexo和Github建立个人主页/" rel="next" title="使用Hexo和Github建立个人主页">
-                <i class="fa fa-chevron-left"></i> 使用Hexo和Github建立个人主页
+              <a href="/2018/12/28/Java电商项目学习(九) 支付模块开发 - 副本/" rel="next" title="Java电商项目学习（九） 支付模块开发">
+                <i class="fa fa-chevron-left"></i> Java电商项目学习（九） 支付模块开发
               </a>
             
           </div>
@@ -448,10 +482,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/19/绑定个人域名与Github-pages/" rel="prev" title="绑定个人域名与Github pages">
-                绑定个人域名与Github pages <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -588,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、git工作流程"><span class="nav-text">一、git工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、常用操作"><span class="nav-text">二、常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、初始化仓库"><span class="nav-text">1、初始化仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、加到缓存区"><span class="nav-text">2、加到缓存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、提交到版本库"><span class="nav-text">3、提交到版本库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、查看信息"><span class="nav-text">4、查看信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、回退操作"><span class="nav-text">5、回退操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、分支操作"><span class="nav-text">6、分支操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、克隆仓库"><span class="nav-text">7、克隆仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、与远程仓库同步"><span class="nav-text">8、与远程仓库同步</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#订单管理接口设计"><span class="nav-text">订单管理接口设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建订单"><span class="nav-text">创建订单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取消订单"><span class="nav-text">取消订单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取订单商品信息"><span class="nav-text">获取订单商品信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取订单详情"><span class="nav-text">获取订单详情</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取用户订单分页列表"><span class="nav-text">获取用户订单分页列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理员获取用户订单分页列表"><span class="nav-text">管理员获取用户订单分页列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理员获取订单详情"><span class="nav-text">管理员获取订单详情</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理员按订单号查询"><span class="nav-text">管理员按订单号查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理员订单发货"><span class="nav-text">管理员订单发货</span></a></li></ol></div>
             
 
           </div>
